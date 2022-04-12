@@ -2,6 +2,7 @@
 
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser'); // required to parse POST requests
 
 console.log("Hello World")
 
@@ -43,6 +44,10 @@ app.get('/name', function(req, res) {
 
 /* Use body-parser to Parse POST Requests */
 // Besides GET, there is another common HTTP verb, it is POST. 
+// In REST convention, POST is used to send data to create new items in the database (a new user, or a new blog post). 
+// The middleware to handle urlencoded data is returned by bodyParser.urlencoded({extended: false}). Pass the function returned by the previous method call to app.use(). As usual, the middleware must be mounted before all the routes that depend on it.
+// Note: extended is a configuration option that tells body-parser which parsing needs to be used. When extended=false it uses the classic encoding querystring library. When extended=true it uses qs library for parsing.
+app.use(bodyParser.urlencoded({extended: false}))
 
 /* --- */
 function handler (req, res) {
