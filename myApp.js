@@ -49,6 +49,11 @@ app.get('/name', function(req, res) {
 // Note: extended is a configuration option that tells body-parser which parsing needs to be used. When extended=false it uses the classic encoding querystring library. When extended=true it uses qs library for parsing.
 app.use(bodyParser.urlencoded({extended: false}))
 
+/* Get Data from POST Requests */
+app.post('/name', function(req, res) {
+  res.json({name: req.body.first + " " + req.body.last})
+});
+
 /* --- */
 function handler (req, res) {
   // Use the Node global variable __dirname to calculate the path
