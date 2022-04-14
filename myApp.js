@@ -3,6 +3,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser'); // required to parse POST requests
+// more info about body-parser: https://stackoverflow.com/questions/38306569/what-does-body-parser-do-with-express
 
 console.log("Hello World")
 
