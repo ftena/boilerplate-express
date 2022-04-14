@@ -41,6 +41,9 @@ app.get('/:word/echo', function(req, res) {
 // Another common way to get input from the client is by encoding the data after the route path, using a query string. The query string is delimited by a question mark (?), and includes field=value couples. Each couple is separated by an ampersand (&). Express can parse the data from the query string, and populate the object req.query.
 app.get('/name', function(req, res) {
   res.json({name: req.query.first + " " + req.query.last})
+  // or... you can destructure and rename the keys
+  // var { first: firstName, last: lastName } = req.query;  
+  // res.json({name: `${firstName} ${lastName}`
 });
 
 /* Use body-parser to Parse POST Requests */
